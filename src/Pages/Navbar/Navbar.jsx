@@ -35,19 +35,16 @@ const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                  src={user?.photoURL} />
               </div>
             </div>
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
               <li>
-                <a className="justify-between">
-                 {user?.email}
-                  <span className="badge">New</span>
-                </a>
+               <p>{user?.displayName}</p>
               </li>
-              <li><a>Settings</a></li>
+              <li><Link>Dashboard</Link></li>
               <li><Link onClick={logout}>Logout</Link></li>
             </ul>
           </div>
