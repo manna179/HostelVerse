@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import AdminDashboard from "../../Dashboard/AdminDashboard";
 
 
 const Navbar = () => {
@@ -44,7 +45,7 @@ const Navbar = () => {
               <li>
                <p>{user?.displayName}</p>
               </li>
-              <li><Link>Dashboard</Link></li>
+              <li><Link to='/dashboard'> Dashboard </Link></li>
               <li><Link onClick={logout}>Logout</Link></li>
             </ul>
           </div>

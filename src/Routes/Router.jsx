@@ -3,6 +3,7 @@ import Main from "../Layouts/Main/Main";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import AdminDashboard from "../Dashboard/AdminDashboard";
 
  export const router = createBrowserRouter([
     {
@@ -23,4 +24,9 @@ import Register from "../Pages/Register/Register";
         }
       ]
     },
+    {
+      path:'/dashboard',
+      element:<AdminDashboard></AdminDashboard>,
+      
+    }
   ]);
