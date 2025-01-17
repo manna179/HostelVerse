@@ -11,30 +11,63 @@ const MealCategory = () => {
   return (
     <Tabs>
       <TabList>
+        <Tab>Meals</Tab>
         <Tab>Breakfast</Tab>
         <Tab>Lunch</Tab>
         <Tab>Dinner</Tab>
-        <Tab>All Meal</Tab>
       </TabList>
 
       <TabPanel >
-       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full " >
-       {breakfast.slice(0,3).map((item) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full" >
+       {meals.slice(0,3).map((item) => (
           <div  key={item._id}>
-            <div className="bg-base-100 w-full p-4  shadow-xl">
-              <figure >
+            <div className="bg-base-100 w-full  shadow-xl">
+              <figure className="px-4 pt-4">
                 <img
                   src={item.image}
                   alt="Shoes"
-                  className="rounded-xl h-[300px] w-full bg-cover object-cover"
+                  className="rounded-xl h-[300px] w-full object-cover bg-cover"
                 />
               </figure>
-              <div className=" flex flex-col  ">
+              <div className=" p-4 space-y-2">
+              
                 <h2 className="card-title">{item.title}</h2>
-                <p>{item.price}</p>
-                <p>{item.rating}</p>
+               <div className="flex justify-between">
+               <p className=" font-semibold ">Price : <span className="text-yellow-600">$</span> {item.price}</p>
+               <p className="font-semibold">Rating : {item.rating}</p>
+               </div>
+                
                 <div className="card-actions justify-end">
-                <Link to={`/meals/${item._id}`}> <button className="btn btn-primary">Buy Now</button></Link>
+                 <Link to={`/meals/${item._id}`}> <button className="btn bg-[#FFD709]">Details</button></Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+       </div>
+      </TabPanel>
+      <TabPanel>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full" >
+       {breakfast.slice(0,3).map((item) => (
+          <div  key={item._id}>
+            <div className="bg-base-100 w-full  shadow-xl">
+              <figure className="px-4 pt-4">
+                <img
+                  src={item.image}
+                  alt="Shoes"
+                  className="rounded-xl h-[300px] w-full object-cover bg-cover"
+                />
+              </figure>
+              <div className=" p-4 space-y-2">
+              
+                <h2 className="card-title">{item.title}</h2>
+               <div className="flex justify-between">
+               <p className=" font-semibold ">Price : <span className="text-yellow-600">$</span> {item.price}</p>
+               <p className="font-semibold">Rating : {item.rating}</p>
+               </div>
+                
+                <div className="card-actions justify-end">
+                 <Link to={`/meals/${item._id}`}> <button className="btn bg-[#FFD709] font-semibold">Details</button></Link>
                 </div>
               </div>
             </div>
@@ -51,14 +84,19 @@ const MealCategory = () => {
                 <img
                   src={item.image}
                   alt="Shoes"
-                  className="rounded-xl"
+                  className="rounded-xl h-[300px] w-full object-cover bg-cover"
                 />
               </figure>
-              <div className=" items-center text-center">
+              <div className=" p-4 space-y-2">
+              
                 <h2 className="card-title">{item.title}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="card-actions">
-                <Link to={`/meals/${item._id}`}> <button className="btn btn-primary">Buy Now</button></Link>
+               <div className="flex justify-between">
+               <p className=" font-semibold ">Price : <span className="text-yellow-600">$</span> {item.price}</p>
+               <p className="font-semibold">Rating : {item.rating}</p>
+               </div>
+                
+                <div className="card-actions justify-end">
+                 <Link to={`/meals/${item._id}`}> <button className="btn bg-[#FFD709]">Details</button></Link>
                 </div>
               </div>
             </div>
@@ -75,38 +113,19 @@ const MealCategory = () => {
                 <img
                   src={item.image}
                   alt="Shoes"
-                  className="rounded-xl"
+                  className="rounded-xl h-[300px] w-full object-cover bg-cover"
                 />
               </figure>
-              <div className=" items-center text-center">
+              <div className=" p-4 space-y-2">
+              
                 <h2 className="card-title">{item.title}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="card-actions">
-                <Link to={`/meals/${item._id}`}> <button className="btn btn-primary">Buy Now</button></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-       </div>
-      </TabPanel>
-      <TabPanel>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full" >
-       {meals.slice(0,3).map((item) => (
-          <div  key={item._id}>
-            <div className="bg-base-100 w-full  shadow-xl">
-              <figure className="px-4 pt-4">
-                <img
-                  src={item.image}
-                  alt="Shoes"
-                  className="rounded-xl"
-                />
-              </figure>
-              <div className=" items-center text-center">
-                <h2 className="card-title">{item.title}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="card-actions">
-                 <Link to={`/meals/${item._id}`}> <button className="btn btn-primary">Buy Now</button></Link>
+               <div className="flex justify-between">
+               <p className=" font-semibold ">Price : <span className="text-yellow-600">$</span> {item.price}</p>
+               <p className="font-semibold">Rating : {item.rating}</p>
+               </div>
+                
+                <div className="card-actions justify-end">
+                 <Link to={`/meals/${item._id}`}> <button className="btn bg-[#FFD709]">Details</button></Link>
                 </div>
               </div>
             </div>

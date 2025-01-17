@@ -7,10 +7,10 @@ import Banner from "../../Pages/Home/Banner/Banner";
 const Main = () => {
     return (
         <div>
-          <Navbar></Navbar>
+         <div className="w-full bg-[#007BFF]"> <Navbar></Navbar></div>
         
            
-           <div >
+           <div className="min-h-screen">
            <Outlet></Outlet>
            </div>
             <Footer></Footer>

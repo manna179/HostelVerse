@@ -7,7 +7,8 @@ const MealDetails = () => {
   const {
     title,
     image,
-    price,
+    
+distributorName,
     ingredients,
     like,
     postTime,
@@ -17,23 +18,26 @@ const MealDetails = () => {
   } = meal;
 
   return (
-    <div className=" bg-base-200 min-h-screen w-11/12 mx-auto">
-      <div className="hero-content flex-col lg:flex-row">
-        <img src={image} className="max-w-sm rounded-lg shadow-2xl" />
+    <div className="  min-h-screen w-11/12 mx-auto">
+<h2 className="text-4xl text-center underline mb-4 mt-2 font-bold">Food Details</h2>
+
+      <div className="hero-content flex-col items-center lg:flex-row">
+        <img src={image} className="h-[320px] object-cover bg-cover rounded-lg shadow-2xl" />
         <div className="flex flex-col space-y-2">
-          <h1 className="text-5xl font-bold">{title}</h1>
-          <p className="">Description:  {description}</p>
-          <p className="">Ingredients: {ingredients}</p>
-          <p className="">Post Time: {postTime}</p>
-          <p className=""> Rating: {rating}</p>
+          <h1 className="text-4xl font-bold">{title}</h1>
+          <h3 className="font-semibold">Distributor Name : <span className="text-slate-500">{distributorName}</span></h3>
+          <p className="font-semibold ">Description:  <span className="text-slate-500">{description}</span></p>
+          <p className="font-semibold ">Ingredients: <span className="text-slate-500">{ingredients}</span></p>
+          <p className="font-semibold ">Post Time: <span className="text-slate-500">{postTime}</span></p>
+          <p className="font-semibold "> Rating: <span className="text-slate-500">{rating} </span></p>
         <div className="flex gap-4 w-full">
-        <button className="btn  bg-[#007BFF]"><FaThumbsUp /> {like}</button>
-        <button className="btn  bg-[#007BFF]">Request</button>
+        <button className="btn bg-[#FFD709] "><FaThumbsUp /> {like}</button>
+        <button className="btn  bg-[#FFD709]">Request</button>
         </div>
 
           <div className="flex items-center gap-2">
-            <textarea className="w-full " placeholder="add review" defaultValue={reviews}></textarea>
-            <button className="btn bg-[#007BFF]">post review</button>
+            <textarea className="w-full border " placeholder="add review" defaultValue={reviews}></textarea>
+            <button className="btn bg-[#FFD709]">post review</button>
           </div>
         </div>
       </div>
