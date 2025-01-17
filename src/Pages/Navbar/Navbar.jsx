@@ -2,13 +2,13 @@ import { useContext } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
-import AdminDashboard from "../../Dashboard/AdminDashboard";
+
 
 
 const Navbar = () => {
     const {user,logout}=useContext(AuthContext)
     return (
-        <div className="navbar flex justify-between pl-6 pr-6 bg-[#007BFF]">
+        <div className="navbar z-30 sticky top-0 flex justify-between pl-6 pr-6 bg-[#007BFF]">
         <div className="flex">
             <img className="h-10 w-10" src="https://i.ibb.co.com/xmNyvnY/brand-17653861.png" alt="" />
           <h2 className=" text-2xl text-white">HostelVerse</h2>
@@ -35,7 +35,7 @@ const Navbar = () => {
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img
-                  alt="Tailwind CSS Navbar component"
+                  alt={user?.displayName}
                   src={user?.photoURL} />
               </div>
             </div>

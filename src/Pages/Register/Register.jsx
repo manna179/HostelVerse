@@ -7,7 +7,6 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 
-
 const Register = () => {
   const navigate = useNavigate()
   const axiosPublic = useAxiosPublic()
@@ -30,8 +29,11 @@ const Register = () => {
              .then(()=>{
               const userInfo = {
                 name:data.name,
-                email:data.email
+                email:data.email,
+                badge:data.badge
+               
               }
+          
               // save to userCollection db
               axiosPublic.post('/users',userInfo)
               .then(res=>{
@@ -86,6 +88,24 @@ const Register = () => {
                   required
                 />
                 {errors.name && (
+                  <span className="text-red-600">This field is required</span>
+                )}
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Badge</span>
+                </label>
+                <input
+                  {...register("badge", { required: true })}
+                  name="badge"
+                  type="text"
+                  defaultValue="bronze"
+                  readOnly
+                  placeholder="Badge"
+                  className="input input-bordered"
+                  required
+                />
+                {errors.badge && (
                   <span className="text-red-600">This field is required</span>
                 )}
               </div>

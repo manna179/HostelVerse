@@ -19,8 +19,8 @@ const AdminDashboard = () => {
             </Link>
           </li>
           <li>
-            <Link to="/dashBoard/addItems">
-              <FaUtensils></FaUtensils> Add Items
+            <Link to="/dashBoard/addMeal">
+              <FaUtensils></FaUtensils> Add meal
             </Link>
           </li>
           <li>

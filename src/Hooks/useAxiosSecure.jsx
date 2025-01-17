@@ -18,6 +18,7 @@ const useAxiosSecure = () => {
     const requestInterceptor = axiosSecure.interceptors.request.use(
       (config) => {
         const token = localStorage.getItem("access-token");
+        
         if (token) {
           config.headers.authorization = `Bearer ${token}`;
         }
@@ -32,9 +33,11 @@ const useAxiosSecure = () => {
     const responseInterceptor = axiosSecure.interceptors.response.use(
       (response) => response,
       async (error) => {
-        if (error.response && (error.response.status === 401 || error.response.status === 403)) {
-          await logout();
-          navigate("/login");
+        const status = error.response.status;
+          // for 401 or 403 logout the user and move the user to the login
+          if (status === 401 || status === 403) {
+            await logout();
+            navigate('/login');
         }
         return Promise.reject(error);
       }
