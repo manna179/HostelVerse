@@ -35,7 +35,7 @@ const AddMeal = () => {
     if(res.data.success){
       const mealData = {
         ...data,
-        distributorName:user.displayName,
+        distributorName:user?.displayName,
         email:user.email,
         image:res.data.data.display_url,
         like:0,

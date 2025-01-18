@@ -1,7 +1,11 @@
+import { FaEdit, FaUpload } from "react-icons/fa";
 import useMeals from "../../Hooks/useMeals";
+import { FaDeleteLeft } from "react-icons/fa6";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const ManageMeals = () => {
   const [meals] = useMeals();
+  console.log(meals);
 
   return (
     <div>
@@ -10,55 +14,44 @@ const ManageMeals = () => {
           {/* head */}
           <thead>
             <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
+              <th>Title</th>
               <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
+              <th>Rating</th>
+              <th>Likes</th>
+              <th>Edit</th>
+              <th>Delete</th>
+              <th>Details</th>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
-           {
-            meals.map(meal=> <tr key={meal._id}>
+            {meals.map((meal) => (
+              <tr key={meal._id}>
                 <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
+                  <p>{meal.title}</p>
                 </th>
+                <td>{meal.distributorName}</td>
+                <td>{meal.rating}</td>
+               <td></td>
+                <td>{meal.like}</td>
                 <td>
-                  <div className="flex items-center gap-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle h-12 w-12">
-                        <img
-                          src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                          alt="Avatar Tailwind CSS Component"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-bold">Hart Hagerty</div>
-                      <div className="text-sm opacity-50">United States</div>
-                    </div>
-                  </div>
+                  {" "}
+                  <button className="flex justify-center items-center">
+                    <FaEdit className="text-lg text-orange-500"></FaEdit>
+                  </button>
                 </td>
                 <td>
-                  Zemlak, Daniel and Leannon
-                  <br />
-                  <span className="badge badge-ghost badge-sm">
-                    Desktop Support Technician
-                  </span>
+                  <button className="">
+                    <RiDeleteBin6Line className="text-xl text-red-400" />
+                  </button>
                 </td>
-                <td>Purple</td>
-                <th>
-                  <button className="btn btn-ghost btn-xs">details</button>
-                </th>
-              </tr>)
-           }
+                <td>
+                  <button className="btn btn-link text-red-400">
+                    view Meal
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
