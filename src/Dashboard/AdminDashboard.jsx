@@ -14,8 +14,8 @@ const AdminDashboard = () => {
           {
             isAdmin ? <>
                 <li>
-            <Link to="/dashBoard/adminHome">
-              <FaHome></FaHome> Admin Home
+            <Link to="/dashBoard/adminProfile">
+              <FaHome></FaHome> Admin Profile
             </Link>
           </li>
           <li>
@@ -24,8 +24,8 @@ const AdminDashboard = () => {
             </Link>
           </li>
           <li>
-            <Link to="/dashBoard/manageItems">
-              <FaList></FaList> Manage Items
+            <Link to="/dashBoard/manageMeals">
+              <FaList></FaList> Manage meals
             </Link>
           </li>
 
@@ -84,7 +84,7 @@ const AdminDashboard = () => {
             </Link>
           </li>
           <li>
-            <Link to="/order/salad">
+            <Link to="/allMeals">
               <FaSearch></FaSearch>  Menu
             </Link>
           </li>

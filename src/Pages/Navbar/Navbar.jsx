@@ -8,7 +8,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 const Navbar = () => {
     const {user,logout}=useContext(AuthContext)
     return (
-        <div className="navbar z-30 sticky top-0 flex justify-between pl-6 pr-6  flex-col w-11/12 mx-auto md:flex-row">
+        <div className="navbar  justify-between pl-6 pr-6  flex-col w-11/12 mx-auto md:flex-row">
         <div className="flex">
             <img className="h-10 w-10" src="https://i.ibb.co.com/xmNyvnY/brand-17653861.png" alt="" />
           <h2 className=" text-2xl text-white">HostelVerse</h2>

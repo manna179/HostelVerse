@@ -5,7 +5,7 @@ import useMeals from "../../../Hooks/useMeals";
 const AllMeal = () => {
     const [meals]=useMeals()
     return (
-        <div> 
+        <div className="w-11/12 mx-auto"> 
             {/* heading section */}
              <div className="my-4">
                 <h3 className="text-center text-3xl font-bold text-blue-600">All the meals you want!</h3>

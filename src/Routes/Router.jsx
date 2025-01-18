@@ -10,6 +10,8 @@ import AllMeal from "../Pages/Home/Allmeal/Allmeal";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import AllUsers from "../Pages/AdminPage/AllUsers";
+import ManageMeals from "../Pages/AdminPage/ManageMeals";
+import AdminProfile from "../Pages/AdminPage/AdminProfile";
 
  export const router = createBrowserRouter([
     {
@@ -45,8 +47,16 @@ import AllUsers from "../Pages/AdminPage/AllUsers";
       element:<PrivateRoute><AdminDashboard></AdminDashboard></PrivateRoute>,
       children:[
         {
+          path:'adminProfile',
+          element:<AdminProfile></AdminProfile>
+        },
+        {
           path:'addMeal',
           element:<AdminRoute><AddMeal></AddMeal></AdminRoute>
+        },
+        {
+          path:'manageMeals',
+          element:<ManageMeals></ManageMeals>
         },
         {
           path:'users',

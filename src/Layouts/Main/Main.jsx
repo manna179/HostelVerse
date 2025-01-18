@@ -7,7 +7,7 @@ import Banner from "../../Pages/Home/Banner/Banner";
 const Main = () => {
     return (
         <div>
-         <div className="w-full bg-[#007BFF]"> <Navbar></Navbar></div>
+         <div className="w-full sticky top-0 z-30 bg-[#007BFF] "> <Navbar></Navbar></div>
         
            
            <div className="min-h-screen">

@@ -38,7 +38,6 @@ const AddMeal = () => {
         distributorName:user.displayName,
         email:user.email,
         image:res.data.data.display_url,
-        rating: 0,
         like:0,
         reviews: [],
         reviewsCount: 0,
@@ -166,6 +165,26 @@ const AddMeal = () => {
               />
               {errors.price && (
                 <span className="text-red-600">This field is required</span>
+              )}
+            </div>
+
+
+            {/* Title Input */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Rating</span>
+              </label>
+              <input
+                {...register("rating", { required: true, valueAsNumber: true, validate: {
+                  maxValue: (value) =>
+                    value <= 5 || "Rating cannot be greater than 5",
+                }, })}
+                type="number"
+                placeholder="Rating"
+                className="input input-bordered"
+              />
+              {errors.rating && (
+                <span className="text-red-600">This field number is no longer than 5 </span>
               )}
             </div>
 
