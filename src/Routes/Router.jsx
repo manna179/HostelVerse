@@ -12,6 +12,7 @@ import AdminRoute from "./AdminRoute";
 import AllUsers from "../Pages/AdminPage/AllUsers";
 import ManageMeals from "../Pages/AdminPage/ManageMeals";
 import AdminProfile from "../Pages/AdminPage/AdminProfile";
+import UserProfile from "../Pages/UserPage/UserProfile/UserProfile";
 
  export const router = createBrowserRouter([
     {
@@ -48,7 +49,7 @@ import AdminProfile from "../Pages/AdminPage/AdminProfile";
       children:[
         {
           path:'adminProfile',
-          element:<AdminProfile></AdminProfile>
+          element:<AdminRoute><AdminProfile></AdminProfile></AdminRoute>
         },
         {
           path:'addMeal',
@@ -56,11 +57,16 @@ import AdminProfile from "../Pages/AdminPage/AdminProfile";
         },
         {
           path:'manageMeals',
-          element:<ManageMeals></ManageMeals>
+          element:<AdminRoute><ManageMeals></ManageMeals></AdminRoute>
         },
         {
           path:'users',
-          element:<AllUsers></AllUsers>
+          element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+        // user related
+        {
+          path:'userProfile',
+          element:<PrivateRoute><UserProfile></UserProfile></PrivateRoute>
         }
         
       ]

@@ -44,8 +44,8 @@ const AdminDashboard = () => {
             :
             <>
             <li>
-            <Link to="/dashBoard/userHome">
-              <FaHome></FaHome> User Home
+            <Link to="/dashBoard/userProfile">
+              <FaHome></FaHome> User Profile
             </Link>
           </li>
           <li>
