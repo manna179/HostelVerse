@@ -60,6 +60,22 @@ navigate('/allMeals')
 
   }
 
+  const handleAddPost =()=>{
+    
+    if(user&&user?.email){
+      const reviewItem={
+        mealId:_id,
+        email:user?.email,
+        title:title,
+        like:like,
+        rating:rating,
+        reviews:reviews,
+        status:"requested"
+      }
+      axiosSecure.post()
+    }
+  }
+
   return (
     <div className="  min-h-screen w-11/12 mx-auto">
       <h2 className="text-4xl text-center underline mb-4 mt-2 font-bold">

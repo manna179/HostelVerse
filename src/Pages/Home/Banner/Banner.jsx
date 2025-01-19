@@ -10,8 +10,8 @@ import food6 from '../../../assets/food (6).jpg'
 
 const Banner = () => {
     return (
-       <div >
-          <Carousel >
+       <div  className="">
+          <Carousel>
                 <div >
                     <img className="" src={food1} />
                 
