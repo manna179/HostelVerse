@@ -6,6 +6,9 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import GoogleLogin from "./GoogleLogin/GoogleLogin";
+import Lottie from "lottie-react";
+import animate from '../../assets/lottie/register.json'
 
 const Register = () => {
   const navigate = useNavigate()
@@ -66,14 +69,11 @@ const Register = () => {
         <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+            
+         <Lottie animationData={animate}></Lottie>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <h1 className="text-3xl font-bold text-center">Login now!</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -188,7 +188,7 @@ const Register = () => {
               </div>
               <div className="form-control mt-6">
                 <input
-                  className="btn btn-primary"
+                  className="btn bg-[#007bff] hover:bg-[#007bff]"
                   value="signUp"
                   type="submit"
                 />
@@ -202,6 +202,8 @@ const Register = () => {
                 </Link>
               </small>
             </p>
+
+           <div className="w-full"> <GoogleLogin></GoogleLogin></div>
             
           </div>
         </div>

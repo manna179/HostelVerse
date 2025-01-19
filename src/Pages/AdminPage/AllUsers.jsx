@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useChangeRole } from "../../Hooks/user";
+import { FaEdit } from "react-icons/fa";
 
 
 const AllUsers = () => {
@@ -37,18 +38,14 @@ const AllUsers = () => {
 
     return (
         <div>
-            all users
+           <h3 className="text-3xl font-bold text-center my-4"> All users</h3>
 {/* users */}
 <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
     <thead>
       <tr>
-        <th>
-          <label>
-            <input type="checkbox" className="checkbox" />
-          </label>
-        </th>
+       
         <th>Name</th>
         <th>Email</th>
         <th>Subscription </th>
@@ -59,11 +56,7 @@ const AllUsers = () => {
       {/* row 1 */}
      {
         users.map(user=> <tr key={user._id}>
-            <th>
-              <label>
-                <input type="checkbox" className="checkbox" />
-              </label>
-            </th>
+            
             <td>
               <div className="flex items-center gap-3">
                 
@@ -83,7 +76,7 @@ const AllUsers = () => {
             </td>
             <td>{user.badge}</td>
             <th>
-              <button onClick={()=>handleChangeRole(user.email)} className=" btn "> Request</button>
+              <button onClick={()=>handleChangeRole(user.email)} className=" btn "> <FaEdit></FaEdit></button>
             </th>
           </tr>)
      }

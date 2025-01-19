@@ -9,7 +9,13 @@ const MealCategory = () => {
   const dinner = meals.filter((item) => item.category === "dinner");
 
   return (
-    <Tabs>
+    <div className="mb-6">
+<div>
+  <h2 className="text-3xl font-bold text-center mt-6">HostelVerse: Where Every Meal Tells a Story</h2>
+  <p className="text-lg font-semibold text-center mt-2 text-gray-600">Discover, Share, and Savor Dishes from Around the World in One Place.</p>
+</div>
+      
+      <Tabs>
       <TabList>
         <Tab>Meals</Tab>
         <Tab>Breakfast</Tab>
@@ -134,6 +140,7 @@ const MealCategory = () => {
        </div>
       </TabPanel>
     </Tabs>
+    </div>
   );
 };
 

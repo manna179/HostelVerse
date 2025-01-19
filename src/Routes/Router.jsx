@@ -13,6 +13,7 @@ import AllUsers from "../Pages/AdminPage/AllUsers";
 import ManageMeals from "../Pages/AdminPage/ManageMeals";
 import AdminProfile from "../Pages/AdminPage/AdminProfile";
 import UserProfile from "../Pages/UserPage/UserProfile/UserProfile";
+import UpcomingMeals from "../Pages/Home/UpcomingMeals/UpcomingMeals";
 
  export const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ import UserProfile from "../Pages/UserPage/UserProfile/UserProfile";
         {
             path:'/',
             element:<Home></Home>
+        },
+        {
+          path:'/upcomingMeals',
+          element:<UpcomingMeals></UpcomingMeals>
         },
         {
             path:'login',

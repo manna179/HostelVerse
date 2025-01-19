@@ -8,16 +8,16 @@ const AdminProfile = () => {
     console.log(user?.photoURL);
     return (
       <div className="flex justify-center items-center min-h-screen">
-          <div className="card  lg:card-side bg-[#007BFF] text-white shadow-2xl ">
+          <div className="card w-full h-[400px] lg:card-side bg-base-200 shadow-2xl ">
         <figure className="w-full">
           <img className="h-[200px] w-[200px] rounded-full"
             src={user.photoURL}
             alt="Album" />
         </figure>
-        <div className="card-body w-full">
-          <h2 className="card-title">NAME: <br /> {user?.displayName}</h2>
-          <p>EMAIL: <br /> {user.email}</p>
-          <p>Total Meals: {meals.length}</p>
+        <div className=" flex flex-col justify-center items-center space-y-3 w-full">
+          <h2 className="card-title">NAME: <span className="text-orange-500"> {user?.displayName}</span></h2>
+          <p className="text-lg font-semibold ">EMAIL: <span className="text-orange-500"> {user.email}</span></p>
+          <p className="text-lg font-semibold ">Total Meals: <span className="text-orange-500">({meals.length})</span></p>
         </div>
       </div>
       </div>

@@ -3,6 +3,9 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { data, Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import GoogleLogin from "../Register/GoogleLogin/GoogleLogin";
+import animationLogin from '../../assets/lottie/login.json'
+import Lottie from "lottie-react";
 
 const Login = () => {
     const navigate = useNavigate()
@@ -47,14 +50,11 @@ let from = location.state?.from?.pathname || "/";
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
+         
+         <Lottie animationData={animationLogin}></Lottie>
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <h1 className="text-3xl font-bold text-center">Login now!</h1>
           <form onSubmit={handleSubmit(onsubmit)} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -94,10 +94,11 @@ let from = location.state?.from?.pathname || "/";
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn bg-[#007bff] hover:bg-[#007bff]">Login</button>
             </div>
             <p>Have no account? <Link to='/register' className="btn btn-link">Register</Link></p>
           </form>
+          <GoogleLogin></GoogleLogin>
         </div>
       </div>
     </div>

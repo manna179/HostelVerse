@@ -17,13 +17,8 @@ const Navbar = () => {
         <div className="list-none gap-10 flex flex-col md:flex-row text-white font-semibold">
            <li><NavLink to='/'>Home</NavLink></li> 
            <li><NavLink to='/allMeals'>Meals</NavLink></li> 
-           <li><NavLink>Upcoming Meals</NavLink></li> 
-           <li><NavLink>
-            <button className="flex  items-center">
-            <FaCartShopping />
-            <div className="badge text-orange-300">+99</div>
-           </button>
-           </NavLink></li>
+           <li><NavLink to='/upcomingMeals'>Upcoming Meals</NavLink></li> 
+          
            
            
         </div>
@@ -49,7 +44,7 @@ const Navbar = () => {
               <li><Link onClick={logout}>Logout</Link></li>
             </ul>
           </div>
-        </div></>:<> <li className="list-none"><NavLink to='login'> Join Us</NavLink></li> </>
+        </div></>:<> <li className="list-none text-xl font-semibold text-white"><NavLink to='login'> Join Us</NavLink></li> </>
         }
         
       </div>
