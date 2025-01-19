@@ -4,49 +4,49 @@ import useMeals from "../../Hooks/useMeals";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { useMealUpdate } from "../../Hooks/meal";
+import UpdateModal from "./UpdateModal";
 
 const ManageMeals = () => {
-    const axiosSecure = useAxiosSecure();
+
+  const { mutate } = useMealUpdate();
+  const axiosSecure = useAxiosSecure();
   const [meals, loading, refetch] = useMeals();
   console.log(meals);
- 
-const handleDeleteMeal=async (id)=>{
+
+  const handleDeleteMeal = async (id) => {
     Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then(async(result) => {
-        if (result.isConfirmed) {
-            const res = await axiosSecure.delete(`/meals/${id}`)
-            // console.log(res.data);
-            if(res.data.deletedCount>0){
-               refetch()
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                  });
-            }
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await axiosSecure.delete(`/meals/${id}`);
+        // console.log(res.data);
+        if (res.data.deletedCount > 0) {
+          refetch();
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
         }
-      });
+      }
+    });
 
-
-
-//
-}
-// have to be update
-// const handleUpdateMeal =(id)=>{
-// const payload = {
-//     id,
-//     data:{
-
-//     }
-// }
-// }
+    //
+  };
+  // have to be update
+  const handleUpdateMeal = (id) => {
+    const payload = {
+      id,
+      data: {},
+    };
+  };
   return (
     <div>
       <div className="overflow-x-auto">
@@ -77,12 +77,15 @@ const handleDeleteMeal=async (id)=>{
                 <td>{meal?.like}</td>
                 <td>
                   {" "}
-                  <button className="flex justify-center items-center">
-                    <FaEdit className="text-lg text-orange-500"></FaEdit>
-                  </button>
+                  {/* Open the modal using document.getElementById('ID').showModal() method */}
+                  <UpdateModal id={meal._id} ></UpdateModal>
+                  
                 </td>
                 <td>
-                  <button onClick={()=>handleDeleteMeal(meal._id)} className="">
+                  <button
+                    onClick={() => handleDeleteMeal(meal._id)}
+                    className=""
+                  >
                     <RiDeleteBin6Line className="text-xl text-red-400" />
                   </button>
                 </td>
