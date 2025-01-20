@@ -1,9 +1,10 @@
 import { FaThumbsUp } from "react-icons/fa";
-import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import { data, useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useMeals from "../../../Hooks/useMeals";
+import { useForm } from "react-hook-form";
 
 const MealDetails = () => {
   const [,,refetch]=useMeals()
@@ -12,6 +13,12 @@ const MealDetails = () => {
   // const location = useLocation()
   const navigate = useNavigate()
   const meal = useLoaderData();
+   const {
+          register,
+          handleSubmit,
+         reset,
+        
+        } = useForm();
   console.log(meal);
   const {
     _id,
@@ -36,7 +43,7 @@ const MealDetails = () => {
         like:like,
         rating:rating,
         reviews:reviews,
-        status:"requested"
+        status:"pending"
       }
 axiosSecure.post('/mealCart',mealItem)
 .then(res=>{
@@ -60,7 +67,7 @@ navigate('/allMeals')
 
   }
 
-  const handleAddPost =()=>{
+  const onsubmit =async (data)=>{
     
     if(user&&user?.email){
       const reviewItem={
@@ -69,10 +76,25 @@ navigate('/allMeals')
         title:title,
         like:like,
         rating:rating,
-        reviews:reviews,
-        status:"requested"
+       review:data.review,
+        
       }
-      axiosSecure.post()
+      axiosSecure.post('/reviews',reviewItem)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your review has been posted!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          reset(); 
+        }
+      })
+      .catch((error) => {
+        console.error("Error posting review:", error);
+      });
     }
   }
 
@@ -113,14 +135,16 @@ navigate('/allMeals')
             <button onClick={handleAddRequest} className="btn  bg-[#FFD709]">Request</button>
           </div>
 
-          <div className="flex items-center gap-2">
+          <form  onSubmit={handleSubmit(onsubmit)} className="flex items-center gap-2">
             <textarea
+            {...register("review", { required: true })}
               className="w-full border "
               placeholder="add review"
-              defaultValue={reviews}
+            
+             name="review"
             ></textarea>
-            <button className="btn bg-[#FFD709]">post review</button>
-          </div>
+            <button type="submit" className="btn bg-[#FFD709]">post review</button>
+          </form>
         </div>
       </div>
     </div>

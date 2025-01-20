@@ -4,9 +4,10 @@ import useMeals from "../../../Hooks/useMeals";
 import { Link } from "react-router-dom";
 const MealCategory = () => {
   const [meals] = useMeals();
-  const breakfast = meals.filter((item) => item.category === "breakfast");
-  const lunch = meals.filter((item) => item.category === "lunch");
-  const dinner = meals.filter((item) => item.category === "dinner");
+  const allMeals = meals.filter(item=>item.status==="current")
+  const breakfast = meals.filter((item) => item.category === "breakfast"&& item.status==="current");
+  const lunch = meals.filter((item) => item.category === "lunch" && item.status==="current");
+  const dinner = meals.filter((item) => item.category === "dinner" && item.status==="current");
 
   return (
     <div className="mb-6">
@@ -25,7 +26,7 @@ const MealCategory = () => {
 
       <TabPanel >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full" >
-       {meals.slice(0,3).map((item) => (
+       {allMeals.slice(0,3).map((item) => (
           <div  key={item._id}>
             <div className="bg-base-100 w-full  shadow-xl">
               <figure className="px-4 pt-4">

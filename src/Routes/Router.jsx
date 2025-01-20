@@ -14,6 +14,7 @@ import ManageMeals from "../Pages/AdminPage/ManageMeals";
 import AdminProfile from "../Pages/AdminPage/AdminProfile";
 import UserProfile from "../Pages/UserPage/UserProfile/UserProfile";
 import UpcomingMeals from "../Pages/Home/UpcomingMeals/UpcomingMeals";
+import StatusRoute from "./StatusRoute";
 
  export const router = createBrowserRouter([
     {

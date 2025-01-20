@@ -88,12 +88,7 @@ const AddMeal = () => {
               <label className="label">
                 <span className="label-text">Category</span>
               </label>
-              {/* <input
-                {...register("category", { required: true })}
-                type="text"
-                placeholder="Category"
-                className="input input-bordered"
-              /> */}
+              
               <select name="category" id="" defaultValue="selectCategory"   {...register("category", { required: true })}>
                 <option value="selectCategory" disabled >Select Category</option>
                 <option value="breakfast">breakfast</option>
@@ -101,6 +96,22 @@ const AddMeal = () => {
                 <option value="dinner">dinner</option>
               </select>
               {errors.category && (
+                <span className="text-red-600">This field is required</span>
+              )}
+            </div>
+            {/* status */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Status</span>
+              </label>
+              
+              <select name="status" id="" defaultValue="selectStatus"   {...register("status", { required: true })}>
+                <option value="selectStatus" disabled >Select Status</option>
+                <option value="current">currentMeals</option>
+                <option value="upcoming">upcoming</option>
+                
+              </select>
+              {errors.status && (
                 <span className="text-red-600">This field is required</span>
               )}
             </div>

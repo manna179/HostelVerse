@@ -4,6 +4,7 @@ import useMeals from "../../../Hooks/useMeals";
 
 const AllMeal = () => {
     const [meals]=useMeals()
+    const currentMeals = meals.filter(item=>item.status==="current")
     return (
         <div className="w-11/12 mx-auto"> 
             {/* heading section */}
@@ -15,7 +16,7 @@ const AllMeal = () => {
 
              </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full" >
-        {meals.map((item) => (
+        {currentMeals.map((item) => (
            <div  key={item._id}>
              <div className="bg-base-100 w-full  shadow-xl">
                <figure className="px-4 pt-4">
