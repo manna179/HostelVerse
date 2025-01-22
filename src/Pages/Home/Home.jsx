@@ -15,7 +15,7 @@ const Home = () => {
            <div className="">
            <Banner></Banner>
            </div>
-           <div className="w-11/12 mx-auto">
+           <div className="w-11/12 mx-auto mt-40">
            <MealCategory></MealCategory>
            </div>
            <div>

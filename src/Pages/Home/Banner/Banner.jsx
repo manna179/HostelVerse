@@ -10,26 +10,26 @@ import food6 from '../../../assets/food (6).jpg'
 
 const Banner = () => {
     return (
-       <div  className="">
+       <div  className="h-[60vh]  ">
           <Carousel>
-                <div >
-                    <img className="" src={food1} />
+                <div className="h-[60vh] w-full">
+                    <img className="h-full object-cover w-full" src={food1} />
                 
                 </div>
-                <div>
-                    <img src={food2} />
+                <div className="h-[60vh] w-full">
+                    <img className="h-full object-cover w-full" src={food2} />
                     
                 </div>
-                <div>
-                    <img src={food3} />
+                <div className="h-[60vh] w-full">
+                    <img className="h-full object-cover w-full" src={food3} />
                     
                 </div>
-                <div>
-                    <img src={food4} />
+                <div className="h-[60vh] w-full">
+                    <img className="h-full object-cover w-full" src={food4} />
                     
                 </div>
-                <div>
-                    <img src={food5} />
+                <div className="h-[60vh] w-full">
+                    <img className="h-full object-cover w-full" src={food5} />
                     
                 </div>
             </Carousel>

@@ -31,13 +31,18 @@ const AdminDashboard = () => {
 
          
           <li>
-            <Link to="/dashBoard/manageBooking">
-              <FaBook></FaBook>Manage Booking 
+            <Link to="/dashBoard/allReviews">
+              <FaBook></FaBook>All Reviews
             </Link>
           </li>
           <li>
             <Link to="/dashBoard/users">
               <FaUser></FaUser> All Users
+            </Link>
+          </li>
+          <li>
+            <Link to="/dashBoard/serveMeals">
+              <FaUser></FaUser> Serve Meals
             </Link>
           </li>
             </>
@@ -49,8 +54,8 @@ const AdminDashboard = () => {
             </Link>
           </li>
           <li>
-            <Link to="/dashBoard/reservation">
-              <FaTowerObservation></FaTowerObservation> Reservation
+            <Link to="/dashBoard/orderedMeals">
+              <FaTowerObservation></FaTowerObservation> Ordered Meals
             </Link>
           </li>
           <li>
@@ -60,15 +65,11 @@ const AdminDashboard = () => {
           </li>
 
           <li>
-            <Link to="/dashBoard/cart">
-              <FaShoppingCart></FaShoppingCart> My Cart 
+            <Link to="/dashBoard/myReviews">
+              <FaBook></FaBook> My Reviews 
             </Link>
           </li>
-          <li>
-            <Link to="/dashBoard/review">
-              <FaAd></FaAd> Add Review
-            </Link>
-          </li>
+          
           <li>
             <Link to="/dashBoard/paymentHistory">
               <FaList></FaList> Payment History

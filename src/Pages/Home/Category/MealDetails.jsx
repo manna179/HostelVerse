@@ -29,6 +29,7 @@ const MealDetails = () => {
     like,
     postTime,
     rating,
+    status,
     description,
     reviews,
   } = meal;
@@ -132,10 +133,10 @@ navigate('/allMeals')
             <button className="btn bg-[#FFD709] ">
               <FaThumbsUp /> {like}
             </button>
-            <button onClick={handleAddRequest} className="btn  bg-[#FFD709]">Request</button>
+          {status==="current"&&  <button onClick={handleAddRequest} className="btn  bg-[#FFD709]">Request</button>}
           </div>
 
-          <form  onSubmit={handleSubmit(onsubmit)} className="flex items-center gap-2">
+          {status==="current"&&<form  onSubmit={handleSubmit(onsubmit)} className="flex items-center gap-2">
             <textarea
             {...register("review", { required: true })}
               className="w-full border "
@@ -144,7 +145,7 @@ navigate('/allMeals')
              name="review"
             ></textarea>
             <button type="submit" className="btn bg-[#FFD709]">post review</button>
-          </form>
+          </form>}
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@ const CategoryMeal = () => {
           clickable: true,
         }}
         modules={[FreeMode, Pagination]}
-        className="mySwiper mb-24"
+        className="mySwiper mb-12 "
       >
         <SwiperSlide>
             <img className='h-full w-full' src={img1} alt="" />

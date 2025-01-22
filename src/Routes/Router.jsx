@@ -15,6 +15,10 @@ import AdminProfile from "../Pages/AdminPage/AdminProfile";
 import UserProfile from "../Pages/UserPage/UserProfile/UserProfile";
 import UpcomingMeals from "../Pages/Home/UpcomingMeals/UpcomingMeals";
 import StatusRoute from "./StatusRoute";
+import AllReview from "../Pages/AdminPage/AllReview";
+import ServeMeals from "../Pages/AdminPage/ServeMeals";
+import OrderedMeals from "../Pages/UserPages/OrderedMeals";
+import MyReviews from "../Pages/UserPages/MyReviews";
 
  export const router = createBrowserRouter([
     {
@@ -69,10 +73,26 @@ import StatusRoute from "./StatusRoute";
           path:'users',
           element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
         },
+        {
+          path:'allReviews',
+          element:<AdminRoute><AllReview></AllReview></AdminRoute>
+        },
+        {
+          path:'serveMeals',
+          element:<AdminRoute><ServeMeals></ServeMeals></AdminRoute>
+        },
         // user related
         {
           path:'userProfile',
           element:<PrivateRoute><UserProfile></UserProfile></PrivateRoute>
+        },
+        {
+          path:'orderedMeals',
+          element:<PrivateRoute><OrderedMeals></OrderedMeals></PrivateRoute>
+        },
+        {
+          path:'myReviews',
+          element:<PrivateRoute><MyReviews></MyReviews></PrivateRoute>
         }
         
       ]

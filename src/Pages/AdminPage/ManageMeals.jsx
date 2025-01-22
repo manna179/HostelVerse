@@ -6,12 +6,14 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useMealUpdate } from "../../Hooks/meal";
 import UpdateModal from "./UpdateModal";
+import { useState } from "react";
 
 const ManageMeals = () => {
+  const [userId,setUserId]=useState(null)
 
-  const { mutate } = useMealUpdate();
+  // const { mutate } = useMealUpdate();
   const axiosSecure = useAxiosSecure();
-  const [meals, loading, refetch] = useMeals();
+  const [meals, , refetch] = useMeals();
   console.log(meals);
 
   const handleDeleteMeal = async (id) => {
@@ -40,15 +42,13 @@ const ManageMeals = () => {
 
     //
   };
-  // have to be update
-  const handleUpdateMeal = (id) => {
-    const payload = {
-      id,
-      data: {},
-    };
-  };
+ 
   return (
     <div>
+{
+  userId && <UpdateModal refetch={refetch} id={userId} setUserId={setUserId}></UpdateModal>
+}
+
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -78,7 +78,13 @@ const ManageMeals = () => {
                 <td>
                   {" "}
                   {/* Open the modal using document.getElementById('ID').showModal() method */}
-                  <UpdateModal id={meal._id} ></UpdateModal>
+                  {/* <UpdateModal id={meal._id} ></UpdateModal> */}
+                    <button
+                          className=""
+                          onClick={() => setUserId(meal._id)}
+                        >
+                         <FaEdit className="text-red-400 text-xl"></FaEdit>
+                        </button>
                   
                 </td>
                 <td>

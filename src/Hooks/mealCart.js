@@ -12,6 +12,17 @@ export  const useMealUpdate = ()=>{
     })
 }
 
+export const useGetAllCartMeal=(email)=>{
+    return useQuery({
+        queryKey:["mealCart" ,email],
+        queryFn:async()=>{
+            const {data}= await axiosSecure.get(`/mealCart?email=${email}`)
+            return data 
+        }
+    })
+}
+ 
+
  export const useGetSingleMeal=(id)=>{
     return useQuery({
         queryKey:["singleQuery" ,id],
@@ -22,3 +33,15 @@ export  const useMealUpdate = ()=>{
     })
 }
  
+
+
+export  const useSingleMealUpdate = ()=>{
+    return useMutation({
+        mutationKey:["updateSingleMeal"],
+        mutationFn:async(payload)=>{
+            const {data}= await axiosSecure.put(`/mealCart/${payload.id}`,payload.data)
+            return data
+        }
+        
+    })
+}

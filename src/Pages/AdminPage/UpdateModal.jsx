@@ -3,24 +3,25 @@ import { useGetSingleMeal, useMealUpdate } from "../../Hooks/meal";
 import { useForm } from "react-hook-form";
 import { FaEdit } from "react-icons/fa";
 
-const UpdateModal = ({ id }) => {
+const UpdateModal = ({ id ,setUserId,refetch}) => {
+ 
+
   const { register, handleSubmit, reset } = useForm();
   const { data } = useGetSingleMeal(id);
   const { mutate } = useMealUpdate();
 
   const handleUpdateMeal = (data) => {
-    // const payload = {
-    //     id,
-    //     data
-    // }
+ 
     mutate(
       {
         data,
         id,
       },
+      
       {
         onSuccess: () => {
-          document.getElementById("my_modal_1").showModal;
+          setUserId(null)
+          refetch()
         },
       }
     );
@@ -39,13 +40,8 @@ const UpdateModal = ({ id }) => {
 
   return (
     <>
-      <button
-        className=""
-        onClick={() => document.getElementById("my_modal_1").showModal()}
-      >
-       <FaEdit className="text-red-400 text-xl"></FaEdit>
-      </button>
-      <dialog id="my_modal_1" className="modal">
+     
+      <dialog id="my_modal_1" className="modal opacity-100 pointer-events-auto">
         <div className="modal-box">
           <form onSubmit={handleSubmit(handleUpdateMeal)}>
             {/* Ingredients Input */}
@@ -88,7 +84,7 @@ const UpdateModal = ({ id }) => {
           <div className="modal-action">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
-              <button className="btn">Close</button>
+              <button onClick={()=>setUserId(null)} className="btn">Close</button>
             </form>
           </div>
         </div>
