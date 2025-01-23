@@ -6,7 +6,8 @@ import { AuthContext } from "../Providers/AuthProvider";
 
 
 export const axiosSecure = axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "https://server-hostel.vercel.app",
+  withCredentials: true,
  
 });
 

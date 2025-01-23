@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const AllReview = () => {
 const axiosSecure = useAxiosSecure()
-  const [review,,refetch] = useReview();
+  const{ data:review=[],refetch}= useReview();
   console.log(review);
   
 
@@ -56,13 +56,14 @@ const axiosSecure = useAxiosSecure()
           </thead>
           <tbody>
             {/* row 1 */}
-         {
-            review.map(item=>   <tr key={item._id}>
+         
+              { review.map(item => <tr key={item._id}> 
                 <td>{item.title}</td>
                 <td>{item.email}</td>
                 <td>{item.like}</td>
                 <td><button onClick={()=>handleDeleteReview(item._id)}><RiDeleteBin6Line className="text-red-500 text-lg"/></button></td>
-              </tr>)
+               </tr>)
+              
          }
             
           </tbody>

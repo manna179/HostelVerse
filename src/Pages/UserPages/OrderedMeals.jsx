@@ -8,7 +8,7 @@ import useAuth from "../../Hooks/useAuth";
 const OrderedMeals = () => {
     const {user}=useAuth()
     const axiosSecure  = useAxiosSecure()
-    const [review,loading,refetch]= useReview()
+    const {data:review}= useReview()
     console.log('review',review);
     const{data,refetch:refetchMeal}=useGetAllCartMeal(user?.email)
     console.log(data);

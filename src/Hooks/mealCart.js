@@ -11,17 +11,18 @@ export  const useMealUpdate = ()=>{
         
     })
 }
-
-export const useGetAllCartMeal=(email)=>{
+export const useGetAllCartMeal = (email) => {
     return useQuery({
-        queryKey:["mealCart" ,email],
-        queryFn:async()=>{
-            const {data}= await axiosSecure.get(`/mealCart?email=${email}`)
-            return data 
-        }
-    })
-}
- 
+      queryKey: ['mealCart', email || "all"],
+      queryFn: async () => {
+        const endpoint = email ? `/mealCart?email=${email}` : `/mealCart`;
+        const { data } = await axiosSecure.get(endpoint);
+        return data;
+      },
+      enabled: true, // Always enabled; fetches either filtered or all data
+    });
+  };
+  
 
  export const useGetSingleMeal=(id)=>{
     return useQuery({

@@ -1,17 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
+import { axiosSecure } from "./useAxiosSecure";
 
-import useAxiosSecure from "./useAxiosSecure";
+const useReview = (email) => {
+  return useQuery({
+    queryKey: ['reviews', email],
+    queryFn: async () => {
+      const endpoint = email ? `/reviews?email=${email}` : `/reviews`;
+      const { data } = await axiosSecure.get(endpoint);
+      return data;
+    },
+    enabled: true, 
+  });
+};
 
-const useReview = ()=>{
-  const axiosSecure = useAxiosSecure()
-
-  const {data:review=[],isLoading:loading,refetch } = useQuery({
-    queryKey:['reviews'],
-    queryFn:async()=>{
-      const res=await axiosSecure.get('/reviews');
-      return res.data
-    }
-  })
-  return [review,loading,refetch]
-}
-export default useReview
+export default useReview;

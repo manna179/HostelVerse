@@ -48,7 +48,7 @@ import MyReviews from "../Pages/UserPages/MyReviews";
         {
           path:'meals/:id',
           element:<PrivateRoute><MealDetails></MealDetails></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:4000/meals/${params.id}`)
+          loader:({params})=>fetch(`https://server-hostel.vercel.app/meals/${params.id}`)
         }
        
       ]
