@@ -1,20 +1,20 @@
-import { FaEdit, FaUpload } from "react-icons/fa";
+import { FaEdit,} from "react-icons/fa";
 import useMeals from "../../Hooks/useMeals";
 
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import { useMealUpdate } from "../../Hooks/meal";
+
 import UpdateModal from "./UpdateModal";
 import { useState } from "react";
 
 const ManageMeals = () => {
   const [userId,setUserId]=useState(null)
 
-  // const { mutate } = useMealUpdate();
+  
   const axiosSecure = useAxiosSecure();
   const [meals, , refetch] = useMeals();
-  console.log(meals);
+  // console.log(meals);
 
   const handleDeleteMeal = async (id) => {
     Swal.fire({
@@ -61,7 +61,7 @@ const ManageMeals = () => {
               <th>Likes</th>
               <th>Edit</th>
               <th>Delete</th>
-              <th>Details</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -95,11 +95,7 @@ const ManageMeals = () => {
                     <RiDeleteBin6Line className="text-xl text-red-400" />
                   </button>
                 </td>
-                <td>
-                  <button className="btn btn-link text-red-400">
-                    view Meal
-                  </button>
-                </td>
+                
               </tr>
             ))}
           </tbody>

@@ -5,7 +5,7 @@ import useMeals from "../../Hooks/useMeals";
 const AdminProfile = () => {
     const [meals]=useMeals()
     const {user}= useAuth()
-    console.log(user?.photoURL);
+  
     return (
       <div className="flex justify-center items-center min-h-screen">
           <div className="card w-full h-[400px] lg:card-side bg-base-200 shadow-2xl ">

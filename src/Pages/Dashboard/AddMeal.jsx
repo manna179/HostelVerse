@@ -63,12 +63,13 @@ const AddMeal = () => {
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="">
+          <h2 className="text-2xl font-bold my-8 text-center">Add Meal</h2>
           <form
             onSubmit={handleSubmit(onsubmit)}
-            className="card-body grid grid-cols-1 md:grid-cols-3 gap-4"
+            className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
           >
             {/* Title Input */}
-            <div className="form-control">
+            <div className="form-control ">
               <label className="label">
                 <span className="label-text">Title</span>
               </label>
@@ -89,7 +90,7 @@ const AddMeal = () => {
                 <span className="label-text">Category</span>
               </label>
               
-              <select name="category" id="" defaultValue="selectCategory"   {...register("category", { required: true })}>
+              <select className="input input-bordered" name="category" id="" defaultValue="selectCategory"   {...register("category", { required: true })}>
                 <option value="selectCategory" disabled >Select Category</option>
                 <option value="breakfast">breakfast</option>
                 <option value="lunch">lunch</option>
@@ -105,7 +106,7 @@ const AddMeal = () => {
                 <span className="label-text">Status</span>
               </label>
               
-              <select name="status" id="" defaultValue="selectStatus"   {...register("status", { required: true })}>
+              <select className="input input-bordered" name="status" id="" defaultValue="selectStatus"   {...register("status", { required: true })}>
                 <option value="selectStatus" disabled >Select Status</option>
                 <option value="current">currentMeals</option>
                 <option value="upcoming">upcoming</option>
@@ -116,21 +117,8 @@ const AddMeal = () => {
               )}
             </div>
 
-            {/* Image Input */}
-            {/* <div className="form-control">
-              <label className="label">
-                <span className="label-text">Image URL</span>
-              </label>
-              <input
-                {...register("image", { required: true })}
-                type="text"
-                placeholder="Image URL"
-                className="input input-bordered"
-              />
-              {errors.image && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div> */}
+           
+           
 
             {/* Ingredients Input */}
             <div className="form-control">
@@ -140,7 +128,7 @@ const AddMeal = () => {
               <textarea
                 {...register("ingredients", { required: true })}
                 placeholder="List of ingredients"
-                className="textarea textarea-bordered"
+                className="input input-bordered"
               />
               {errors.ingredients && (
                 <span className="text-red-600">This field is required</span>
@@ -155,7 +143,7 @@ const AddMeal = () => {
               <textarea
                 {...register("description", { required: true })}
                 placeholder="Description of the meal"
-                className="textarea textarea-bordered"
+                className="input input-bordered"
               />
               {errors.description && (
                 <span className="text-red-600">This field is required</span>
@@ -200,13 +188,19 @@ const AddMeal = () => {
             </div>
 
              {/* file */}
-          <div className="form-control w-full my-6">
-          <input {...register('image',{required:true})} type="file" className="file-input w-full max-w-xs" />
+          <div className="form-control ">
+          <label className="label">
+                <span className="label-text">File</span>
+              </label>
+          <input {...register('image',{required:true})} type="file" className="file-input w-full max-w-xs bg-[#ffd709]" />
           </div>
 
             {/* Submit Button */}
-            <div className="form-control mt-6">
-              <button type="submit" className="btn btn-primary">
+            <div className="form-control ">
+            <label className="label">
+                <span className="label-text">Submit</span>
+              </label>
+              <button type="submit" className="btn bg-[#ffd709]">
                 Submit
               </button>
             </div>

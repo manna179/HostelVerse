@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const AllReview = () => {
 const axiosSecure = useAxiosSecure()
   const{ data:review=[],refetch}= useReview();
-  console.log(review);
+  // console.log(review);
   
 
    const handleDeleteReview = async (id) => {
@@ -49,9 +49,9 @@ const axiosSecure = useAxiosSecure()
           <thead>
             <tr>
               <th className="text-lg">Meal Name</th>
-              <th className="text-lg">user</th>
-              <th className="text-lg">likes</th>
-              <th className="text-lg">delete</th>
+              <th className="text-lg">User</th>
+              <th className="text-lg">Likes</th>
+              <th className="text-lg">Delete</th>
             </tr>
           </thead>
           <tbody>

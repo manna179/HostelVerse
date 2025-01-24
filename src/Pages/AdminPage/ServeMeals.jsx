@@ -4,7 +4,7 @@ import { useGetAllCartMeal, useSingleMealUpdate } from "../../Hooks/mealCart";
 const ServeMeals = () => {
  
   const {data=[],refetch} = useGetAllCartMeal();
-  console.log(data);
+  // console.log(data);
   const { mutate } = useSingleMealUpdate();
 
  

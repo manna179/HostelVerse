@@ -19,6 +19,7 @@ import AllReview from "../Pages/AdminPage/AllReview";
 import ServeMeals from "../Pages/AdminPage/ServeMeals";
 import OrderedMeals from "../Pages/UserPages/OrderedMeals";
 import MyReviews from "../Pages/UserPages/MyReviews";
+import PaymentHistory from "../Pages/UserPage/UserProfile/PaymentHistory";
 
  export const router = createBrowserRouter([
     {
@@ -93,6 +94,10 @@ import MyReviews from "../Pages/UserPages/MyReviews";
         {
           path:'myReviews',
           element:<PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+        },
+        {
+          path:'paymentHistory',
+          element:<PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
         }
         
       ]

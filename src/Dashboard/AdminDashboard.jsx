@@ -59,12 +59,6 @@ const AdminDashboard = () => {
             </Link>
           </li>
           <li>
-            <Link to="/dashBoard/payment">
-              <FaPaypal></FaPaypal> Payment History
-            </Link>
-          </li>
-
-          <li>
             <Link to="/dashBoard/myReviews">
               <FaBook></FaBook> My Reviews 
             </Link>
@@ -89,11 +83,7 @@ const AdminDashboard = () => {
               <FaSearch></FaSearch>  Menu
             </Link>
           </li>
-          <li>
-            <Link to="/order/contact">
-              <FaEnvelope></FaEnvelope>  Contact
-            </Link>
-          </li>
+         
         </ul>
       </div>
       <div className="flex-1 p-8">

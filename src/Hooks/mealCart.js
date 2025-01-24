@@ -19,7 +19,7 @@ export const useGetAllCartMeal = (email) => {
         const { data } = await axiosSecure.get(endpoint);
         return data;
       },
-      enabled: true, // Always enabled; fetches either filtered or all data
+      enabled: true, 
     });
   };
   

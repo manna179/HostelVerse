@@ -29,9 +29,9 @@ const UserProfile = () => {
         </figure>
         <div className="card-body justify-center items-center w-full">
          <div className="space-y-2">
-         <h2 className="card-title">NAME:  {user?.displayName}</h2>
-          <p>EMAIL: {user.email}</p>
-          <p>Badge : {data?.badge}</p>
+         <h2 className="text-lg font-bold">NAME:  <span className="text-slate-700">{user?.displayName}</span></h2>
+          <p className="text-lg font-bold">EMAIL: <span className="text-slate-700"> {user.email}</span> </p>
+          <p className="text-lg font-bold">Badge : <span className="text-slate-700">{data?.badge}</span> </p>
          </div>
         </div>
       </div>

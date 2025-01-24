@@ -76,7 +76,7 @@ const OrderedMeals = () => {
             
             </td>
             <td>{item.price}</td>
-            <td>{review.length}</td>
+            <td>{review?.length}</td>
             {item.status === "delivered"?<td className="text-green-500">{ item.status}</td>:<td className="text-red-500">{ item.status}</td>}
             <th>
             {item?.status==="delivered"?<> <button disabled className="btn bg-none btn-link text-green-500">Cancel</button></>:<>
