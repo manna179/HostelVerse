@@ -14,7 +14,7 @@ const AllMeal = () => {
   useEffect(() => {
     const fetchMeals = async () => {
       try {
-        const response = await fetch("http://localhost:4000/meals");
+        const response = await fetch("https://server-hostel.vercel.app/meals");
         const data = await response.json();
         setMeals(data);
         setFilteredMeals(data);
