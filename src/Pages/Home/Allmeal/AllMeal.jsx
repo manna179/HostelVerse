@@ -26,7 +26,7 @@ const AllMeal = () => {
   }, []);
 
   const applyFilters = () => {
-    let filteredData = meals;
+    let filteredData =  meals;
 
     if (category) {
       filteredData = filteredData.filter((meal) => meal.category === category);

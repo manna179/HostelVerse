@@ -10,10 +10,11 @@ Currently, two official plugins are available:
 
 # HOSTELVERSE
 
-## Key features 
-
-
-# Project Title
+## Important Links : 
+* Live Link : https://hostel-verse.web.app
+* Admin : ami@tumi.com
+* password : 123456aA&
+* 
 
 ## Key features :
 * Navbar shows logged in User profile photo if logged in.
