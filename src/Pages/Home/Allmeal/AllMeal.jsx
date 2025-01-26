@@ -16,6 +16,7 @@ const AllMeal = () => {
       try {
         const response = await fetch("https://server-hostel.vercel.app/meals");
         const data = await response.json();
+        // console.log(data);
         setMeals(data);
         setFilteredMeals(data);
       } catch (error) {
@@ -25,9 +26,13 @@ const AllMeal = () => {
     fetchMeals();
   }, []);
 
+ 
+ 
   const applyFilters = () => {
-    let filteredData =  meals;
+   
 
+    let filteredData =  meals;
+    
     if (category) {
       filteredData = filteredData.filter((meal) => meal.category === category);
     }
@@ -37,6 +42,7 @@ const AllMeal = () => {
     if (maxPrice) {
       filteredData = filteredData.filter((meal) => meal.price <= maxPrice);
     }
+   
 
     setFilteredMeals(filteredData);
     setPage(1);
@@ -96,14 +102,16 @@ const AllMeal = () => {
 
       {/* Infinite Scroll Meals Grid */}
       <InfiniteScroll
+      
         dataLength={page * 10}
         next={loadMoreMeals}
         hasMore={hasMore}
+        
         loader={<h4>Loading more meals...</h4>}
         endMessage={<p className="text-center text-lg font-semibold my-4">No more meals to show!</p>}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
-          {filteredMeals.slice(0, page * 10).map((item) => (
+          {filteredMeals .filter((item) => item.status === "current").slice(0, page * 10).map((item) => (
             <div key={item._id}>
               <div className="bg-base-100 w-full shadow-xl">
                 <figure className="px-4 pt-4">

@@ -1,15 +1,18 @@
 import { FaThumbsUp } from "react-icons/fa";
-import { data, useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import {  useLoaderData, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useMeals from "../../../Hooks/useMeals";
 import { useForm } from "react-hook-form";
+// import { useState } from "react";
 
 const MealDetails = () => {
+
   const [,,refetch]=useMeals()
   const axiosSecure = useAxiosSecure()
   const {user}=useAuth()
+  
   // const location = useLocation()
   const navigate = useNavigate()
   const meal = useLoaderData();
@@ -19,7 +22,13 @@ const MealDetails = () => {
          reset,
         
         } = useForm();
-  console.log(meal);
+  //       const [isLiked, setIsLiked] = useState(false);
+  // const [currentLikes, setCurrentLikes] = useState(meal.like);
+
+
+
+       
+ 
   const {
     _id,
     title,
@@ -35,11 +44,50 @@ const MealDetails = () => {
   } = meal;
 
 
+   // likes 
+  //  const handleLike = async () => {
+  //   if(isLiked){
+  //     return;
+  //   }
+  //   if (!user || !user.email) {
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "Oops...",
+  //       text: "You need to log in to like this meal!",
+  //     });
+  //     return;
+  //   }
+
+  //   try {
+  //     const response = await axiosSecure.post(`/meals/${meal._id}/like`, {
+  //       email: user.email,
+  //     });
+
+  //     if (response.data.success) {
+  //       setCurrentLikes((prev) => prev + 1); // Increment like count locally
+  //       setIsLiked(true); // Disable the button
+  //       Swal.fire({
+  //         icon: "success",
+  //         title: "Liked!",
+  //         text: "You have liked this meal.",
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.error("Error liking meal:", error);
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "Error",
+  //       text: error.response?.data?.error || "Failed to like the meal.",
+  //     });
+  //   } }
+
+
   const handleAddRequest=()=>{
     if(user&&user?.email){
       const mealItem={
         mealId:_id,
         email:user?.email,
+        badge:user?.badge,
         title:title,
         like:like,
         rating:rating,
@@ -73,6 +121,7 @@ navigate('/allMeals')
     if(user&&user?.email){
       const reviewItem={
         mealId:_id,
+        
         email:user?.email,
         title:title,
         like:like,
@@ -130,9 +179,14 @@ navigate('/allMeals')
             Rating: <span className="text-slate-500">{rating} </span>
           </p>
           <div className="flex gap-4 w-full">
-            <button className="btn bg-[#FFD709] ">
-              <FaThumbsUp /> {like}
-            </button>
+          {/* <button
+              className={`btn bg-[#FFD709] ${isLiked ? "btn-disabled" : ""}`}
+              onClick={handleLike}
+              disabled={isLiked}
+            >
+              <FaThumbsUp /> {currentLikes}
+            </button> */}
+            <button className="btn bg-[#FFD709]"><FaThumbsUp /></button>
           {status==="current"&&  <button onClick={handleAddRequest} className="btn  bg-[#FFD709]">Request</button>}
           </div>
 
