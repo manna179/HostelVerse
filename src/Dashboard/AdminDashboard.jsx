@@ -45,6 +45,11 @@ const AdminDashboard = () => {
               <FaUser></FaUser> Serve Meals
             </Link>
           </li>
+          <li>
+            <Link to='/dashboard/upcomingMealsAdmin'>
+            <FaUtensils></FaUtensils> UpcomingMeals
+            </Link>
+          </li>
             </>
             :
             <>

@@ -1,6 +1,7 @@
-import useMeals from "../../Hooks/useMeals";
+
 import Banner from "./Banner/Banner";
 import MealCategory from "./Category/MealCategory";
+import Membership from "./Membership/Membership";
 import Promotion from "./Promotion/Promotion";
 
 
@@ -20,6 +21,9 @@ const Home = () => {
            </div>
            <div>
             <Promotion></Promotion>
+           </div>
+           <div>
+            <Membership></Membership>
            </div>
           
           

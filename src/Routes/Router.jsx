@@ -20,6 +20,7 @@ import ServeMeals from "../Pages/AdminPage/ServeMeals";
 import OrderedMeals from "../Pages/UserPages/OrderedMeals";
 import MyReviews from "../Pages/UserPages/MyReviews";
 import PaymentHistory from "../Pages/UserPage/UserProfile/PaymentHistory";
+import UpcomingMealsAdmin from "../Pages/AdminPage/UpcomingMealsAdmin";
 
  export const router = createBrowserRouter([
     {
@@ -81,6 +82,10 @@ import PaymentHistory from "../Pages/UserPage/UserProfile/PaymentHistory";
         {
           path:'serveMeals',
           element:<AdminRoute><ServeMeals></ServeMeals></AdminRoute>
+        },
+        {
+          path:'upcomingMealsAdmin',
+          element:<UpcomingMealsAdmin></UpcomingMealsAdmin>
         },
         // user related
         {
