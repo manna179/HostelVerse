@@ -36,7 +36,7 @@ const {user}=useAuth()
           <h2 className="card-title">Get Silver Badge</h2>
           <p>Discount 10%</p>
           <div className="card-actions">
-            <button className="btn bg-[#FFD709]">Buy Now</button>
+            <button className="btn bg-[#FFD709]">Silver Badge</button>
           </div>
         </div>
       </div></Link>
@@ -54,7 +54,7 @@ const {user}=useAuth()
           <h2 className="card-title">Get Gold Badge</h2>
           <p>Discount 15%</p>
           <div className="card-actions">
-            <button className="btn btn-primary">Buy Now</button>
+            <button className="btn bg-[#FFD709]">Gold Badge</button>
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@ const {user}=useAuth()
           <h2 className="card-title">Get Platinum Badge</h2>
           <p>Discount 20%</p>
           <div className="card-actions">
-            <button className="btn btn-primary">Buy Now</button>
+            <button className="btn bg-[#FFD709]">Platinum</button>
           </div>
         </div>
       </div>

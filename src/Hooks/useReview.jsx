@@ -1,5 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { axiosSecure } from "./useAxiosSecure";
+import useAxiosPublic from "./useAxiosPublic";
+
 
  const useReview = (email) => {
   return useQuery({
@@ -12,10 +14,9 @@ import { axiosSecure } from "./useAxiosSecure";
     enabled: true, 
   });
 };
-export default useReview;
+export default useReview
 
-
-  export const useGetSingleReview=(id)=>{
+export const useGetSingleReview=(id)=>{
   return useQuery({
       queryKey:["singleReview" ,id],
       queryFn:async()=>{
@@ -27,5 +28,17 @@ export default useReview;
 
 
 
+export  const useSingleReviewUpdate = ()=>{
+  const axiosPublic = useAxiosPublic()
+  return useMutation({
+      mutationKey:["updateSingleReview"],
+      mutationFn:async(payload)=>{
+          const {data}= await axiosPublic.put(`/reviews/${payload.id}`,payload.data)
+          return data
+      }
+      
+  })
 
 
+
+}

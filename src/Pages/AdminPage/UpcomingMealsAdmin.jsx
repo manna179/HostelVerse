@@ -34,7 +34,7 @@ const UpcomingMealsAdmin = () => {
                        <td>{item.title}</td>
                        <td>{item.category}</td>
                        <td>{item.like}</td>
-                       <td><FaUpload className="text-lg"></FaUpload></td>
+                       <td><button><FaUpload className="text-lg"></FaUpload></button></td>
                        {/* <td><button onClick={()=>handleDeleteReview(item._id)}><RiDeleteBin6Line className="text-red-500 text-lg"/></button></td> */}
                       </tr>)
                      

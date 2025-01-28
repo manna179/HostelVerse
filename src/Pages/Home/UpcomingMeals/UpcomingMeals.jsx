@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import useMeals from "../../../Hooks/useMeals";
+import useAuth from "../../../Hooks/useAuth";
+import { BiSolidLike } from "react-icons/bi";
 
 
 const UpcomingMeals = () => {
     const [meals]=useMeals()
+    const {user}= useAuth()
     const upcoming = meals.filter(item=>item.status==="upcoming")
     return (
         <div className="w-11/12 mx-auto"> 
@@ -32,7 +35,7 @@ const UpcomingMeals = () => {
              <p className="font-semibold">Ingredients: <span className="text-slate-500">{item.ingredients}</span></p>
              <p className="font-semibold">Post Time: <span className="text-slate-500">{item.postTime}</span></p>
              <p className="font-semibold">Rating: <span className="text-slate-500">{item.rating}</span></p>
-             
+            
              <div className="card-actions justify-end">
               <Link to={`/meals/${item._id}`}> <button className="btn bg-[#FFD709]">See Details</button></Link>
              </div>
