@@ -174,9 +174,9 @@ const MealDetails = () => {
           </p>
 
            {
-              user?.badge==="gold" ? <><button className="btn bg-[#FFD709]"><BiSolidLike className="text-lg text-yellow-400"/></button>
+              status === "upcoming" && user?.badge==="gold" ? <><button className="btn btn-xs bg-[#FFD709]"><BiSolidLike className="text-lg text-yellow-400"/></button>
               </>:<>
-              <button disabled className="btn bg-[#FFD709]"><BiSolidLike className="text-lg  "/></button>
+              <button disabled className="btn px-2 bg-[#FFD709]"><BiSolidLike className="text-lg  "/></button>
               </>
              }
           <div className="flex gap-4 w-full">

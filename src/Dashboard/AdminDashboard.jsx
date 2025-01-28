@@ -50,6 +50,11 @@ const AdminDashboard = () => {
             <FaUtensils></FaUtensils> UpcomingMeals
             </Link>
           </li>
+          <li>
+            <Link to='/dashboard/adminAllMeals'>
+            <FaUtensils></FaUtensils> All Meals
+            </Link>
+          </li>
             </>
             :
             <>
