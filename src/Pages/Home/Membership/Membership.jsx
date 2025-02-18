@@ -1,4 +1,4 @@
-import silver from '../../../assets/package/silver.png'
+import silver from '../../../assets/package/silver (2).png'
 import gold from '../../../assets/package/gold.png'
 import platinum from '../../../assets/package/platinum.png'
 import useAuth from '../../../Hooks/useAuth';
@@ -13,10 +13,10 @@ const {user}=useAuth()
   return (
     <div className="my-10">
       <div>
-        <h2 className="text-3xl text-center font-bold text-slate-800">
+        <h2 className="text-3xl text-center font-bold  ">
           Membership Packages
         </h2>
-        <p className="text-lg font-semibold text-center text-slate-800 ">
+        <p className="text-lg font-semibold text-center  ">
           Get amazing discount by upgrading yourself!
         </p>
       </div>

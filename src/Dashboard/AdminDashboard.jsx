@@ -10,7 +10,7 @@ const AdminDashboard = () => {
   return (
     <div className="flex">
       <div className="bg-[#007BFF] text-white w-64 min-h-screen">
-        <ul className="menu p-4">
+        <ul className="menu p-2">
           {
             isAdmin ? <>
                 <li>
@@ -97,6 +97,7 @@ const AdminDashboard = () => {
         </ul>
       </div>
       <div className="flex-1 p-8">
+        
         <Outlet></Outlet>
       </div>
     </div>
