@@ -147,11 +147,15 @@ const MealDetails = () => {
         Food Details
       </h2>
 
-      <div  className="hero-content relative flex-col items-center lg:flex-row">
+      <div  className="hero-content  flex-col items-center lg:flex-row">
+        <div>
         <img
           src={image}
-          className="h-[320px] object-cover bg-cover rounded-lg shadow-2xl"
+          className="h-[320px]  object-cover bg-cover rounded-lg shadow-2xl"
         />
+        
+        </div>
+        
         <div className="flex flex-col space-y-2">
           <h1 className="text-2xl font-bold">{title}</h1>
           <h3 className="font-semibold">
@@ -172,15 +176,13 @@ const MealDetails = () => {
             {" "}
             Rating: <span className="text-slate-500">{rating} </span>
           </p>
-
-          <div className="absolute left-[680px] bottom-4">
-             {
-             user && status === "upcoming"  ? <><button className=" btn-xs text-2xl"><BiSolidLike className="text-2xl text-black"/></button>
+          {
+             user && status === "upcoming"  ? <><button className="bg-transparent btn-xs text-2xl"><BiSolidLike className="text-2xl text-black"/></button>
               </>:<>
-              <button disabled className="btn px-2 bg-[#FFD709]"><BiSolidLike className="text-lg "/></button>
+              <button disabled className="bg-transparent btn-xs text-2xl"><BiSolidLike className="text-2xl "/></button>
               </>
              }
-          </div>
+          
           <div className="flex gap-4 w-full">
 
             {status === "current" && (

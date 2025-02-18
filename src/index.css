@@ -6,5 +6,8 @@
 }
 
 .active{
-  text-decoration: underline;
+font-size: large;
+border-radius: 4px 4px 4px 4px;
+color: #ecae26;
+
 }
