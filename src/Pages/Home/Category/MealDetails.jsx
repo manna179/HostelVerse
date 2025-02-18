@@ -147,7 +147,7 @@ const MealDetails = () => {
         Food Details
       </h2>
 
-      <div className="hero-content flex-col items-center lg:flex-row">
+      <div  className="hero-content relative flex-col items-center lg:flex-row">
         <img
           src={image}
           className="h-[320px] object-cover bg-cover rounded-lg shadow-2xl"
@@ -173,20 +173,15 @@ const MealDetails = () => {
             Rating: <span className="text-slate-500">{rating} </span>
           </p>
 
-           {
-              status === "upcoming" && user?.badge==="gold" ? <><button className="btn btn-xs bg-[#FFD709]"><BiSolidLike className="text-lg text-yellow-400"/></button>
+          <div className="absolute left-[680px] bottom-4">
+             {
+             user && status === "upcoming"  ? <><button className=" btn-xs text-2xl"><BiSolidLike className="text-2xl text-black"/></button>
               </>:<>
-              <button disabled className="btn px-2 bg-[#FFD709]"><BiSolidLike className="text-lg  "/></button>
+              <button disabled className="btn px-2 bg-[#FFD709]"><BiSolidLike className="text-lg "/></button>
               </>
              }
+          </div>
           <div className="flex gap-4 w-full">
-            {/* <button
-              className={`btn bg-[#FFD709] ${isLiked ? "btn-disabled" : ""}`}
-              onClick={handleLike}
-              disabled={isLiked}
-            >
-              <FaThumbsUp /> {currentLikes}
-            </button> */}
 
             {status === "current" && (
               <button onClick={handleAddRequest} className="btn  bg-[#FFD709]">
