@@ -7,6 +7,8 @@ import useMeals from "../../../Hooks/useMeals";
 import { useForm } from "react-hook-form";
 import useReview from "../../../Hooks/useReview";
 import { BiSolidLike } from "react-icons/bi";
+import { useState } from "react";
+
 // import { useState } from "react";
 
 const MealDetails = () => {
@@ -15,6 +17,9 @@ const MealDetails = () => {
   const [, , refetch] = useMeals();
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
+  console.log(user.displayName);
+  const [liked, setLiked] = useState(false);
+  const [likes, setLikes] = useState(0);
 
   // const location = useLocation()
   const navigate = useNavigate();
@@ -36,48 +41,12 @@ const MealDetails = () => {
     description,
     reviews,
   } = meal;
+  console.log(meal);
 
   if (isLoading) {
     <span className="loading loading-bars loading-lg"></span>;
   }
-  // const { data } = useGetSingleReview(_id);
-  // console.log(data);
-  // likes
-  //  const handleLike = async () => {
-  //   if(isLiked){
-  //     return;
-  //   }
-  //   if (!user || !user.email) {
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: "Oops...",
-  //       text: "You need to log in to like this meal!",
-  //     });
-  //     return;
-  //   }
 
-  //   try {
-  //     const response = await axiosSecure.post(`/meals/${meal._id}/like`, {
-  //       email: user.email,
-  //     });
-
-  //     if (response.data.success) {
-  //       setCurrentLikes((prev) => prev + 1); // Increment like count locally
-  //       setIsLiked(true); // Disable the button
-  //       Swal.fire({
-  //         icon: "success",
-  //         title: "Liked!",
-  //         text: "You have liked this meal.",
-  //       });
-  //     }
-  //   } catch (error) {
-  //     console.error("Error liking meal:", error);
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: "Error",
-  //       text: error.response?.data?.error || "Failed to like the meal.",
-  //     });
-  //   } }
 
   const handleAddRequest = () => {
     if (user && user?.email) {
@@ -90,6 +59,7 @@ const MealDetails = () => {
         rating: rating,
         reviews: reviews,
         status: "pending",
+
       };
       axiosSecure.post("/mealCart", mealItem).then((res) => {
         console.log(res.data);
@@ -106,6 +76,20 @@ const MealDetails = () => {
         navigate("/allMeals");
       });
     }
+  };
+
+  //  like buttons
+  const handleLike = (id) => {
+    setLiked(!liked);
+    setLikes(liked? likes - 1 : likes + 1);
+    axiosSecure
+     .put(`/meal/${_id}/like`, { like: liked? likes - 1 : likes + 1 })
+     .then((res) => {
+        console.log(res.data);
+      })
+     .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   const onsubmit = async (data) => {
@@ -176,12 +160,16 @@ const MealDetails = () => {
             {" "}
             Rating: <span className="text-slate-500">{rating} </span>
           </p>
-          {
-             user && status === "upcoming"  ? <><button className="bg-transparent btn-xs text-2xl"><BiSolidLike className="text-2xl text-black"/></button>
-              </>:<>
-              <button disabled className="bg-transparent btn-xs text-2xl"><BiSolidLike className="text-2xl "/></button>
-              </>
-             }
+          {/* {
+             user?.displayName && status === "upcoming"  &&  <button className="bg-transparent btn-xs text-2xl"><BiSolidLike className="text-2xl text-black"/></button>
+             
+             } */}
+              <button 
+      onClick={()=>handleLike(_id)} 
+      className={`px-4 py-2 rounded-lg ${liked ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+    >
+      {liked ? "❤️ Liked" : "🤍 Like"} ({likes})
+    </button>
           
           <div className="flex gap-4 w-full">
 
